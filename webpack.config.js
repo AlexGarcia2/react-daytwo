@@ -2,7 +2,6 @@ const webpack = require('webpack');
 const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-
 module.exports = {
 
   entry: [
@@ -40,9 +39,19 @@ module.exports = {
         options: {
           emitWarning: true,
           configFile: "./.eslintrc.json"
+        }
+      },
+      {
+      test: /\.(png|gif|jp(e*)g|svg)$/,
+      use: {
+        loader: 'url-loader',
+        options: {
+          limit: 8000,
+          name: 'images/[hash]-[name].[ext]'
           }
-        },
-        {
+        }
+      },
+      {
         test: /\.jsx?$/,
         loader: "babel-loader",
         exclude: /node_modules/,
@@ -52,11 +61,12 @@ module.exports = {
             "react",
           ],
           plugins: [
-            "react-hot-loader/babel"
+            "react-hot-loader/babel",
+              "styled-jsx/babel"
           ]
         }
       }
-    ]
+    ],
   },
 
   plugins: [

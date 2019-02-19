@@ -6,14 +6,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server",
-    "lint": "eslint src/** src/**/**; exit 0"
+    "lint": "eslint src/** src/**/**; exit 0",
+    "lint-fix": "eslint src/** src/**/** --fix; exit 0"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "prop-types": "^15.5.10",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "@material-ui/core": "^3.9.2",
+    "prop-types": "15.5.10",
+    "react": "16.3.0",
+    "react-dom": "16.3.0",
+    "react-router-dom": "^4.3.1",
+    "styled-jsx": "^3.2.1"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",
@@ -23,8 +27,10 @@
     "eslint": "4.13.1",
     "eslint-loader": "^2.1.2",
     "eslint-plugin-react": "^7.12.4",
+    "file-loader": "^1.1.6",
     "html-webpack-plugin": "^2.29.0",
     "react-hot-loader": "^3.0.0-beta.7",
+    "url-loader": "^0.6.2",
     "webpack": "^3.4.0",
     "webpack-dev-server": "^2.5.0"
   }
