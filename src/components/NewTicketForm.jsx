@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function NewTicketForm() {
+function NewTicketForm(props) {
 
   let _names = null;
   let _location = null;
@@ -8,9 +9,10 @@ function NewTicketForm() {
 
   function handleNewTicketFormSubmission(event) {
      event.preventDefault();
-     let _names = '';
-     let _location = '';
-     let _issue = '';
+     props.onNewTicketCreation({names: _names.value, location: _location.value, issue: _issue.value});
+     _names.value = '';
+     _location.value = '';
+     _issue.value = '';
    }
    return (
     <div>
@@ -34,5 +36,9 @@ function NewTicketForm() {
     </div>
   );
 }
+
+NewTicketForm.propTypes = {
+  onNewTicketCreation: PropTypes.func
+};
 
 export default NewTicketForm;
