@@ -1,5 +1,7 @@
 import React from 'react';
+import Moment from 'moment';
 import PropTypes from 'prop-types';
+import { v4 } from 'uuid';
 
 function NewTicketForm(props) {
 
@@ -8,13 +10,13 @@ function NewTicketForm(props) {
   let _issue = null;
 
   function handleNewTicketFormSubmission(event) {
-     event.preventDefault();
-     props.onNewTicketCreation({names: _names.value, location: _location.value, issue: _issue.value});
-     _names.value = '';
-     _location.value = '';
-     _issue.value = '';
-   }
-   return (
+    event.preventDefault();
+    props.onNewTicketCreation({names: _names.value, location: _location.value, issue: _issue.value, id: v4(), timeOpen: new Moment()});
+    _names.value = '';
+    _location.value = '';
+    _issue.value = '';
+  }
+  return (
     <div>
       <form onSubmit={handleNewTicketFormSubmission}>
         <input
